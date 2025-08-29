@@ -1,0 +1,181 @@
+#BioImageSuite Study Description File v2
+#-----------------------------------------------------
+#Study Title
+gradCPT/
+#Subject ID
+sub1
+#-----------------------------------------------------
+#Anatomical Data
+#-----------------------------------------------------
+#Reference Brain
+/path/to/MNI/brain/MNI_T1_1mm_stripped.nii.gz  
+#Reference Gray/White/CSF Map
+/path/to/Gray/White/CSF/Map/Gray_white_csf_map.nii.gz
+#3D Anatomical Image
+/path/to/sub1/skullstripped/brain/sub1_skull_stripped_brain.nii.gz
+#Conventional Image
+
+#Ref-> 3D Anatomical Transformation
+/path/to/nonlinear/reg/sub1_3rdpass.grd
+#3D Anatomical -> Conventional Transformation
+/path/to/identity/matrix/i.matr
+#Conventional -> EPI Transformation
+/path/to/linear/reg/sub1_linear.matr
+#-----------------------------------------------------
+#Basic Parameters
+#-----------------------------------------------------
+#Session ID
+gradCPT
+#Session Description
+gradCPT_run
+#Number of Runs
+2
+#Number of Tasks
+0
+#Number of Outcomes
+0
+#Repetition Time (TR)
+1
+#Number of Slices
+75
+#Number of Frames
+
+#Skip Frames On
+0
+#Frames to Skip
+
+#-----------------------------------------------------
+#Outputs Files/Locations
+#-----------------------------------------------------
+#XML Output File
+
+#XML Output Directory
+
+#Data Output Directory
+/path/to/outputs/sub1
+#-----------------------------------------------------
+#Runs
+#-----------------------------------------------------
+#Run 1 (first line=4D Image, second line=Matrix with Motion Parameters)
+/path/to/sub1/moco/data/sub1_scan1.nii
+/path/to/sub1/moco/data/params/sub1_scan1_hiorder.mat
+No Skip
+#Run 2 (first line=4D Image, second line=Matrix with Motion Parameters)
+/path/to/sub1/moco/data/sub1_scan2.nii
+/path/to/sub1/moco/data/params/sub1_scan2_hiorder.mat
+No Skip
+#-----------------------------------------------------
+#Tasks
+#-----------------------------------------------------
+#-----------------------------------------------------
+#Blocks
+#-----------------------------------------------------
+#Block Definition Time (1=seconds, 0 =frames)
+1
+#-----------------------------------------------------
+#Outcomes
+#-----------------------------------------------------
+#-----------------------------------------------------
+#GLM Processing and AFNI Integration
+#-----------------------------------------------------
+#Ensure Inputs are NIFTI
+ensurenifti : 0
+#Delete Temporary Files
+deletetemp : 1
+#Mask Level (% of max intensity)
+masklevel : 0.05
+#HRF Mode -- one of wav, gamma, doublegamma, triplegamma spm
+hrfmode : wav
+#Use AFNI Waver; if 0 use internal code which is cleaner/faster etc
+useafniwaver : 0
+#Use AFNI Commands for intensity normalization; if 0 use internal code which is cleaner/faster etc
+useafninormalize : 0
+#GLM Delaytime
+delaytime : 2.0
+#GLM Risetime
+risetime : 4.0
+#GLM Falltime
+falltime : 6.0
+#GLM Undershoot
+undershoot : 0.2
+#GLM Peak
+peak : 1.0
+#Polynomial Drift
+polort : 3
+#Output Baseline Coefficientts
+bout : 0
+#Output F-Statistics
+fout : 0
+#Output R^2-Statistics
+rout : 0
+#Output T-Statistics
+tout : 0
+#Output Residual Time Series
+saveresidual : 0
+#Output Drift Beta Maps
+savedriftbeta : 0
+#Output Sample Variance Map
+vout : 0
+#GLM Single Run Output
+glmsinglerunoutput : 0
+#GLM Regress Motion Parameters
+glmregressmotion : 0
+#Rate GLM Terms
+numrateterms : 1
+#Rate GLM Global Drift
+rateglobal : 0
+#-----------------------------------------------------
+#Resting State Connectivity Extra Inputs
+#-----------------------------------------------------
+#VOI Definition
+/path/to/parcellation/parcellation.nii.gz
+#VOI Definition Space (Reference,Anatomical,Conventional,Functional)
+Reference
+#Inverse Reference Transformation
+/path/to/nonlinear/reg/Inverse_sub1_3rdpass.grd
+#-----------------------------------------------------
+#Connectivity Parameters
+#-----------------------------------------------------
+#Mask Level (% of max intensity)
+masklevel : 0.05
+#Polynomial Drift
+driftpol : 3
+# Slice Mean Removal 
+slicemeanremoval : 0
+# Volume Mean Removal 
+volumemeanremoval : 1
+#Raw Correlation
+rawcorrelation : 0
+#Z Transform
+ztransform : 0
+#Process Runs Individually
+individualruns : 1
+#Temporal Smoothing Sigma (Frames)
+temporalsigma : 1.55
+#Intrinsic Connectivity Threshold
+threshold : 0.0
+#Intrinsic Connectivity Range
+range : Both
+#Intrinsic Connectivity Mode
+mode : Sqr
+#Use VOI Image as mask For Intrinsic Connectivity
+usermask : 1
+#Preprocess (Eliminate Motion Parameters)
+usemotionparams : 1
+#Preprocess (Eliminate CSF/White Matter Mean)
+usecsfmean : 1
+#Preprocess (remove high motion frames)
+scrub : 0
+#Scrub threshold
+scrub_threshold : 0.3
+#skip the frames before and after high motion frame
+skipbeforeandafter : 1
+#-----------------------------------------------------
+#Extra GLM Parameters Parameters
+#-----------------------------------------------------
+#Use External Matrix File
+useexternalmatrix : 0
+#External Matrix FileName
+externalmatrixfilename : 
+#Do Convolution with HRF
+doconvolution : 1

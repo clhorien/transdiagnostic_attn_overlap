@@ -1,0 +1,37 @@
+# Example Batch File
+# The following variables can be defined
+# inputlist(1) .. inputlist(9) :  lists of inputs
+# outputsuffix : list of outputsuffices
+# cmdline : the command line beginning with the algorithm
+# logsuffix : the suffix of the log file for each command
+
+
+set inputlist(1) {
+/path/to/MNI/brain/MNI_T1_1mm_stripped.nii.gz  
+}
+
+set inputlist(2) {
+/path/to/sub1/skullstripped/brain/sub1_skull_stripped_brain.nii.gz
+
+}
+
+#Use the *ignore* flag to skip an optional input, i.e. in this case -inp3 will not be used
+set inputlist(3) {
+    *ignore*
+}
+
+set inputlist(4) {
+    *ignore*
+}
+
+set inputlist(5) {
+    *ignore*
+}
+
+set outputsuffix {
+    map.grd
+}
+
+set logsuffix "results"
+
+set cmdline "bis_nonlinearbrainregister.tcl"
